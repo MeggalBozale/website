@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - echo "Deployment started at [`date`] by user $USER" >> /home/$USER/logs/deployments.txt
+    - export DEPLOYPATH=/home/$USER/public_html/ >> /home/$USER/logs/deployments.txt
+    - /bin/cp -R /home/$USER/repositories/react-bootstrap-app/build/* $DEPLOYPATH >> /home/$USER/logs/deployments.txt
+    - /bin/cp /home/$USER/repositories/react-bootstrap-app/.htaccess $DEPLOYPATH >> /home/$USER/logs/deployments.txt
+    - echo "Deployment completed at [`date`] by user $USER."
